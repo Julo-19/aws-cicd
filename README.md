@@ -6,11 +6,14 @@ Ce projet est une application Django déployée sur AWS à l'aide d'une pipeline
 
 ## 🚀 Fonctionnalités
 
-- Application Django modulaire avec l’app `aws_cicd`
-- Déploiement automatique sur AWS via CI/CD (ex : GitHub Actions, CodePipeline)
-- Environnement virtuel isolé
-- Serveur de développement intégré
-- Prête pour la production avec configuration cloud
+
+- Application Django structurée avec une app `aws_cicd`
+- Déploiement automatique sur EC2 via CodePipeline
+- Build & préparation du code via CodeBuild
+- Déclenchement du pipeline à chaque `push` sur `main`
+- Prêt pour la production : configuration extensible avec environnement virtuel, gestion des dépendances, etc.
+
+--
 
 ---
 
@@ -36,3 +39,58 @@ cd nom-du-repo
 Sous Windows :
 python -m venv venv
 venv\Scripts\activate
+
+Sous macOS/Linux :
+source venv/bin/activate
+
+4. Installer les dépendances
+pip install -r requirements.txt
+
+5. Lancer le serveur local
+python manage.py runserver
+
+
+Accéder à l’application : http://127.0.0.1:8000
+
+⚙️ Déploiement
+
+Le déploiement automatique est déclenché via une pipeline CI/CD dès qu’un push est effectué sur la branche main.
+
+
+
+## 📁 Structure du projet
+
+aws-cicd/
+├── aws_cicd/ # Application Django principale
+│ ├── views.py
+│ ├── urls.py
+│ └── ...
+├── monsite/ # Configuration principale Django
+│ ├── settings.py
+│ └── urls.py
+├── buildspec.yml # Script d'exécution pour CodeBuild
+├── appspec.yml # (Si tu utilises CodeDeploy)
+├── scripts/ # Scripts de déploiement pour EC2
+│ └── deploy.sh
+├── manage.py
+├── requirements.txt
+└── README.md
+
+✅ À faire
+
+ Ajouter la configuration de base de données en production
+
+ Ajouter un fichier .env pour les variables sensibles
+
+ Configurer les fichiers statiques avec AWS S3
+
+ Ajouter des tests automatisés à la pipeline
+
+ Ajouter la documentation API (si applicable)
+
+🧑‍💻 Auteur
+
+Souleymane Keita BARRO (JULO)
+🔗 [Lien https://souleymane-barro.tech/]
+📧 [souleymanekeitabarro@gmail.com
+]
