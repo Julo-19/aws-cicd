@@ -65,7 +65,7 @@ aws-cicd/
 │ ├── views.py
 │ ├── urls.py
 │ └── ...
-├── monsite/ # Configuration principale Django
+├── app/ # Configuration principale Django
 │ ├── settings.py
 │ └── urls.py
 ├── buildspec.yml # Script d'exécution pour CodeBuild
@@ -91,6 +91,6 @@ aws-cicd/
 🧑‍💻 Auteur
 
 Souleymane Keita BARRO (JULO)
-🔗 [Lien https://souleymane-barro.tech/]
+🔗  https://souleymane-barro.tech/
 📧 [souleymanekeitabarro@gmail.com
 ]
