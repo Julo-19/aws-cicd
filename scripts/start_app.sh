@@ -3,6 +3,7 @@
 # Activer l'environnement virtuel
 source /home/ubuntu/env/bin/activate
 
+
 # Se placer dans le bon répertoire
 cd /home/ubuntu/project-pipeline-aws/aws_cicd
 
@@ -10,9 +11,9 @@ cd /home/ubuntu/project-pipeline-aws/aws_cicd
 sed -i 's/\[]/\["13.48.149.227"]/' settings.py
 
 # Django Migrations
-python manage.py makemigrations
-python manage.py migrate
-python manage.py collectstatic --noinput
+python3 manage.py makemigrations
+python3 manage.py migrate
+python3 manage.py collectstatic --noinput
 
 # Redémarrage des services
 sudo systemctl restart gunicorn
