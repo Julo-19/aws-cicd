@@ -1,9 +1,12 @@
 #!/usr/bin/bash
 
+# Activer l'environnement virtuel
+source /home/ubuntu/env/bin/activate
+
 # Se placer dans le bon répertoire
 cd /home/ubuntu/project-pipeline-aws/aws_cicd
 
-# Modifier settings.py
+# Modifier settings.py (si nécessaire)
 sed -i 's/\[]/\["13.48.149.227"]/' settings.py
 
 # Django Migrations
