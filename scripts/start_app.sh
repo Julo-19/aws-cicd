@@ -1,6 +1,6 @@
 #!/usr/bin/bash 
 
-sed -i 's/\[]/\["13.53.104.52]/' /home/ubuntu/project-space/aws_cicd/settings.py
+sed -i 's/\[]/\["13.48.149.227"]/' /home/ubuntu/project-space/aws_cicd/settings.py
 
 python manage.py migrate 
 python manage.py makemigrations     
