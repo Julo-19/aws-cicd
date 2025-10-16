@@ -1,11 +1,13 @@
 [Unit]
 Description=gunicorn socket for aws_cicd
+
 [Socket]
-# Le socket sera créé ici et utilisé par Gunicorn
-ListenStream=/home/ubuntu/project-pipeline-aws/aws_cicd.sock
+# Le socket sera créé dans /run et utilisé par Gunicorn
+ListenStream=/run/gunicorn.sock
 # Permissions pour que Nginx puisse lire/écrire
 SocketUser=ubuntu
 SocketGroup=www-data
 SocketMode=0660
+
 [Install]
 WantedBy=sockets.target

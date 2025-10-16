@@ -10,7 +10,7 @@ WorkingDirectory=/home/ubuntu/project-pipeline-aws
 ExecStart=/home/ubuntu/env/bin/gunicorn \
           --access-logfile - \
           --workers 3 \
-          --bind unix:/home/ubuntu/project-pipeline-aws/aws_cicd.sock \
+          --bind unix:/run/gunicorn.sock \
           aws_cicd.wsgi:application
 Restart=always
 
