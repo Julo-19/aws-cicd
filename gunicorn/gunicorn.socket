@@ -1,11 +1,6 @@
 [Unit]
 Description=gunicorn socket
-
 [Socket]
 ListenStream=/home/ubuntu/project-pipeline-aws/aws_cicd.sock
-SocketUser=ubuntu
-SocketGroup=www-data
-SocketMode=0660
-
 [Install]
 WantedBy=sockets.target
