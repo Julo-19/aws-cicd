@@ -2,9 +2,9 @@
 Description=gunicorn socket for aws_cicd
 
 [Socket]
-# Le socket sera créé dans /run et utilisé par Gunicorn
+# Socket utilisé par Gunicorn
 ListenStream=/run/gunicorn.sock
-# Permissions pour que Nginx puisse lire/écrire
+# Permissions pour que Nginx puisse accéder
 SocketUser=ubuntu
 SocketGroup=www-data
 SocketMode=0660
