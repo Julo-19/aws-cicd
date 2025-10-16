@@ -1,6 +1,7 @@
 [Unit]
 Description=gunicorn daemon for aws_cicd project
 After=network.target
+Requires=gunicorn.socket
 
 [Service]
 User=ubuntu
@@ -11,6 +12,7 @@ ExecStart=/home/ubuntu/env/bin/gunicorn \
           --workers 3 \
           --bind unix:/home/ubuntu/project-pipeline-aws/aws_cicd.sock \
           aws_cicd.wsgi:application
+Restart=always
 
 [Install]
 WantedBy=multi-user.target
