@@ -3,35 +3,42 @@ os: linux
 files: 
   - source: /
     destination: /home/ubuntu/project-pipeline-aws/
+  - source: nginx/aws_cicd
+    destination: /etc/nginx/sites-available/aws_cicd
+  - source: systemd/gunicorn.service
+    destination: /etc/systemd/system/gunicorn.service
+  - source: systemd/gunicorn.socket
+    destination: /etc/systemd/system/gunicorn.socket
+
 permissions:
   - object: /home/ubuntu/project-pipeline-aws
     owner: ubuntu
     group: ubuntu
+    mode: 775
+
 hooks:
   BeforeInstall:
-      - location: scripts/clean_instance.sh
-        timeout: 300
-        runas: ubuntu
+    - location: scripts/clean_instance.sh
+      timeout: 300
+      runas: ubuntu
   AfterInstall:
-      - location: scripts/instance_os_dependencies.sh
-        timeout: 300
-        runas: ubuntu
-      - location: scripts/python_dependencies.sh
-        timeout: 300
-        runas: ubuntu
-      - location: scripts/gunicorn.sh
-        timeout: 300
-        runas: ubuntu
-      - location: scripts/nginx.sh
-        timeout: 300
-        runas: ubuntu
+    - location: scripts/instance_os_dependencies.sh
+      timeout: 300
+      runas: ubuntu
+    - location: scripts/python_dependencies.sh
+      timeout: 300
+      runas: ubuntu
+    - location: scripts/gunicorn.sh
+      timeout: 300
+      runas: ubuntu
+    - location: scripts/nginx.sh
+      timeout: 300
+      runas: ubuntu
   ApplicationStop:
-      - location: scripts/stop_app.sh
-        timeout: 300
-        runas: ubuntu
+    - location: scripts/stop_app.sh
+      timeout: 300
+      runas: ubuntu
   ApplicationStart:
-      - location: scripts/start_app.sh
-        timeout: 300
-        runas: ubuntu
-  
-  
+    - location: scripts/start_app.sh
+      timeout: 300
+      runas: ubuntu
